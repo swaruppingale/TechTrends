@@ -5,9 +5,10 @@ import './index.css'
 import SignIn from './pages/SignIn.jsx'
 import Home from './pages/Home.jsx'
 import SignUp from './pages/SignUp.jsx'
+import Review from './pages/review.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     
-    <SignUp/>
+    <Review/>
   </StrictMode>,
 )
