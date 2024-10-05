@@ -1,16 +1,15 @@
 import React from 'react';
-import BackgroundImg from "../assets/images/background.svg";
+import BackgroundImg from '../assets/images/background.svg';
+
 const SignIn = () => {
   return (
-    <div className="bg-green-900 flex items-center justify-center min-h-screen">
+    <div
+      className="flex items-center justify-center min-h-screen bg-cover bg-center"
+      style={{ backgroundImage: `url(${BackgroundImg})` }}
+    >
       <div className="bg-green-900 text-white text-center p-8 rounded-lg shadow-lg w-full max-w-sm">
         <h1 className="text-3xl font-bold mb-2">TechTrends</h1>
         <p className="mb-6">It's modular and designed to last</p>
-        <img
-          src={BackgroundImg}
-          alt="DJ wearing headphones"
-          className="mb-6 rounded-lg"
-        />
         <form className="space-y-4">
           <div className="relative">
             <input
@@ -44,6 +43,6 @@ const SignIn = () => {
       </div>
     </div>
   );
-}
+};
 
 export default SignIn;
