@@ -1,5 +1,5 @@
 import React from 'react';
-
+import BackgroundImg from "../assets/images/background.svg";
 const SignIn = () => {
   return (
     <div className="bg-green-900 flex items-center justify-center min-h-screen">
@@ -7,7 +7,7 @@ const SignIn = () => {
         <h1 className="text-3xl font-bold mb-2">TechTrends</h1>
         <p className="mb-6">It's modular and designed to last</p>
         <img
-          src="https://placehold.co/300x200"
+          src={BackgroundImg}
           alt="DJ wearing headphones"
           className="mb-6 rounded-lg"
         />
