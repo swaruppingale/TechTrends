@@ -27,7 +27,7 @@ export default function Review() {
       {/* Product Image */}
       <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
-      style={{ headphone: `url(${headphone})` }}
+      style={{headphone: 'url(${headphone})' }}
     />
 
       {/* Reviews Section */}

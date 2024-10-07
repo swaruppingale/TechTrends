@@ -6,6 +6,7 @@ import SignIn from './pages/SignIn.jsx'
 import Home from './pages/Home.jsx'
 import SignUp from './pages/SignUp.jsx'
 import Review from './pages/review.jsx'
+import Cart from './pages/cart.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     
