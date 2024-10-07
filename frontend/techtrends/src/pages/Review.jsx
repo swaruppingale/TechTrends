@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaArrowLeft, FaShoppingCart, FaStar } from 'react-icons/fa';
-import headphone from '../assets/images/background.svg';
+import headphone from '../assets/images/headphone.svg';
 
 
 export default function Review() {

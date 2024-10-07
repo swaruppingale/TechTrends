@@ -7,7 +7,7 @@ const SignIn = () => {
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${BackgroundImg})` }}
     >
-      <div className="bg-green-900 text-white text-center p-8 rounded-lg shadow-lg w-full max-w-sm">
+      <div className="bg-green-900 bg-opacity-0 text-white text-center p-8 rounded-lg shadow-lg w-full max-w-sm">
         <h1 className="text-3xl font-bold mb-2">TechTrends</h1>
         <p className="mb-6">It's modular and designed to last</p>
         <form className="space-y-4">

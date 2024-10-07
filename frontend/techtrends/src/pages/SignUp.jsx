@@ -9,7 +9,7 @@ export default function SignUp() {
       style={{ backgroundImage: `url(${BackgroundImg})` }}
     >
     
-      <div className="bg-white bg-opacity-75 p-8 rounded-lg shadow-lg w-80">
+      <div className="bg-white bg-opacity-0 p-8 rounded-lg shadow-lg w-80">
         <h1 className="text-2xl font-bold text-center text-white mb-2">TechTrends</h1>
         <p className="text-center text-white mb-6">It's modular and designed to last</p>
         <form className="space-y-4">
