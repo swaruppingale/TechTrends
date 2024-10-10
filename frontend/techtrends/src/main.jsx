@@ -5,8 +5,9 @@ import './index.css'
 import SignIn from './pages/SignIn.jsx'
 import Home from './pages/Home.jsx'
 import Homef from './pages/Homef.jsx'
+import SignUp from './pages/SignUp.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Home />
+    <SignUp />
   </StrictMode>,
 )
