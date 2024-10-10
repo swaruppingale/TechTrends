@@ -8,11 +8,19 @@ export default function SignUp() {
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${BackgroundImg})` }}
     >
-    
       <div className="bg-white bg-opacity-0 p-8 rounded-lg shadow-lg w-80">
         <h1 className="text-2xl font-bold text-center text-white mb-2">TechTrends</h1>
         <p className="text-center text-white mb-6">It's modular and designed to last</p>
         <form className="space-y-4">
+          {/* Name field */}
+          <div>
+            <input
+              type="text"
+              placeholder="Name"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+          </div>
+          {/* Email field */}
           <div>
             <input
               type="email"
@@ -20,10 +28,27 @@ export default function SignUp() {
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
+          {/* Phone number field */}
+          <div>
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+          </div>
+          {/* Password field */}
           <div>
             <input
               type="password"
               placeholder="Password"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+          </div>
+          {/* Confirm password field */}
+          <div>
+            <input
+              type="password"
+              placeholder="Confirm Password"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
