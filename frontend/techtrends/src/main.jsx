@@ -7,9 +7,10 @@ import Home from './pages/Home.jsx'
 import SignUp from './pages/SignUp.jsx'
 import Review from './pages/review.jsx'
 import Cart from './pages/cart.jsx'
+import Profile from './pages/profile.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     
-    <Review/>
+  <Home/>
   </StrictMode>,
 )
