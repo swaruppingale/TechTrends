@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaArrowLeft, FaShoppingCart, FaStar } from 'react-icons/fa';
 import headphone from '../assets/images/headphone.svg';
+import background from '../assets/images/background.svg'
 
 
 export default function Review() {
@@ -27,7 +28,7 @@ export default function Review() {
       {/* Product Image */}
       <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
-      style={{headphone: 'url(${headphone})' }}
+      src={background}
     />
 
       {/* Reviews Section */}
