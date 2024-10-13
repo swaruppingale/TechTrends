@@ -9,9 +9,10 @@ import SignUp from './pages/SignUp.jsx'
 import Review from './pages/review.jsx'
 import Cart from './pages/cart.jsx'
 import Profile from './pages/profile.jsx'
+import Filter from './pages/filter.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     
-  <Review/>
+  <Filter/>
   </StrictMode>,
 )
