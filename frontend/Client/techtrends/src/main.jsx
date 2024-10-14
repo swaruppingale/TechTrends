@@ -13,6 +13,6 @@ import Filter from './pages/filter.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     
-  <Home/>
+  <Filter/>
   </StrictMode>,
 )

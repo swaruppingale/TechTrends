@@ -23,6 +23,42 @@ const products = [
     price: "2500",
     image: "https://placehold.co/100x100",
     description: "Durable and reliable headphone cable.",
+  }, {
+    id: 1,
+    name: "TMA-2 Modular Headphone",
+    price: "1200",
+    image: "https://placehold.co/100x100",
+    description: "A customizable modular headphone system.",
+  }, {
+    id: 1,
+    name: "TMA-2 Modular Headphone",
+    price: "1200",
+    image: "https://placehold.co/100x100",
+    description: "A customizable modular headphone system.",
+  }, {
+    id: 1,
+    name: "TMA-2 Modular Headphone",
+    price: "1200",
+    image: "https://placehold.co/100x100",
+    description: "A customizable modular headphone system.",
+  }, {
+    id: 1,
+    name: "TMA-2 Modular Headphone",
+    price: "1200",
+    image: "https://placehold.co/100x100",
+    description: "A customizable modular headphone system.",
+  }, {
+    id: 1,
+    name: "TMA-2 Modular Headphone",
+    price: "1200",
+    image: "https://placehold.co/100x100",
+    description: "A customizable modular headphone system.",
+  }, {
+    id: 1,
+    name: "TMA-2 Modular Headphone",
+    price: "1200",
+    image: "https://placehold.co/100x100",
+    description: "A customizable modular headphone system.",
   },
 ];
 
