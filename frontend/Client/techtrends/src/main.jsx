@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import SignIn from './pages/SignIn.jsx'
 import Home from './pages/Home.jsx'
-import Homef from './pages/Homef.jsx'
+
 import SignUp from './pages/SignUp.jsx'
 import Review from './pages/review.jsx'
 import Cart from './pages/cart.jsx'
@@ -13,6 +13,6 @@ import Filter from './pages/filter.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     
-  <Filter/>
+  <Home/>
   </StrictMode>,
 )
