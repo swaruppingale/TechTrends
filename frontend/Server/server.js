@@ -2,20 +2,26 @@ const express =require('express');
 const morgan = require('morgan');
 const dotenv=require('dotenv');
 const connectDB=require('./config/config');
-
+const cors=require('cors')
 require('colors')
-const app=express()
-app.use(express.json())
-app.use(morgan('dev'))
-
-
-
 //config env
 dotenv.config()
+
 
 //connect db
 
 connectDB()
+
+const app=express()
+//middlewares
+app.use(express.json())
+app.use(morgan('dev'))
+app.use(cors());
+
+
+
+//route
+app.use("/api/items",require("./routes/itemRoute"));
 
 
 app.get('/',(req,res)=>{
