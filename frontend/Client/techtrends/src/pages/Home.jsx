@@ -53,7 +53,7 @@ const Home = () => {
                     <Header />
                     <div className="flex-grow mt-[70px] p-4 bg-gray-100">
                         <div className="mb-4 px-4">
-                            <p className="text-lg">Hi, {currentUser.name}</p>
+                            <p className="text-3xl font-bold leading-tight">Hi, {currentUser.name}</p>
                             <h1 className="text-2xl font-semibold leading-tight">
                                 What are you looking for today?
                             </h1>
@@ -91,6 +91,9 @@ const Home = () => {
                             )}
                         </div>
                     </div>
+                    <div className="text-white">.</div>
+                    <div className="text-white">.</div>
+                    <div className="text-white">.</div>
                     <Navbar />
                 </>
             )}
