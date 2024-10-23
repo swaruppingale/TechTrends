@@ -4,12 +4,28 @@ import {thunk} from 'redux-thunk';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { getAllItemReducer } from './reducers/itemReducer';
+import { cartReducer } from './reducers/cartReducer';
+import { registerUserReducer,loginUserReducer } from './reducers/userReducer'; 
+
+const currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null; // Fixed typo
 
 const rootReducer = combineReducers({
-  getAllItemReducer:getAllItemReducer // Simplified object shorthand
+  getAllItemReducer:getAllItemReducer, // Simplified object shorthand
+  cartReducer:cartReducer,
+  registerUserReducer:registerUserReducer,
+  loginUserReducer:loginUserReducer,
 });
 
-const initialState = {};
+const cartItems=localStorage.getItem('cartItems')?JSON.parse(localStorage.getItem('cartItems')):[]
+
+const initialState = {
+  cartReducer:{
+    cartItems:cartItems
+  },
+  loginUserReducer:{
+    currentUser:currentUser,
+  }
+};
 const middleware = [thunk];
 
 // Create the store

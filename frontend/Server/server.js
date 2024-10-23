@@ -22,12 +22,13 @@ app.use(cors());
 
 //route
 app.use("/api/items",require("./routes/itemRoute"));
-
-
+app.use("/api/users",require("./routes/userRoute"))
+app.use("/api/checkout",require("./routes/checkoutRoute"))
 app.get('/',(req,res)=>{
     res.send("<h1>hello from node server</h1>");
 });
 const port=process.env.PORT || 8080
-app.listen(port,()=>{
-    console.log(`Server running on ${process.env.NODE_ENV} mode on port no ${process.env.PORT}`.bgMagenta.white);
+app.listen(port, () => {
+    console.log(`Server running on ${process.env.NODE_ENV} mode on port no ${port}`.bgMagenta.white); // Fixed the port display
 });
+
