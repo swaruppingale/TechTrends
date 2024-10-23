@@ -14,13 +14,12 @@ export const registeruser = (user) => async (dispatch) => {
     }
 };
 
-// Login user action
 export const loginuser = (user) => async (dispatch) => {
     dispatch({ type: 'USER_LOGIN_REQUEST' });
     try {
         const { data } = await axios.post('http://localhost:8080/api/users/login', user);
         dispatch({ type: 'USER_LOGIN_SUCCESS', payload: data });
-        localStorage.setItem('currentUser', JSON.stringify(data));
+        localStorage.setItem('currentUser', JSON.stringify(data)); // Store current user data including ID
         window.location.href = '/';
     } catch (error) {
         dispatch({ 
@@ -29,3 +28,4 @@ export const loginuser = (user) => async (dispatch) => {
         });
     }
 };
+

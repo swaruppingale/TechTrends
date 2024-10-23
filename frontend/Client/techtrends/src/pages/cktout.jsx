@@ -1,79 +1,97 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { saveOrderToDatabase } from '../actions/checkoutAction';
-
+import Header from "./Header";
+import Navbar from "./Navbar";
 const Checkout = () => {
-    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [showModal, setShowModal] = useState(false);  // Modal state
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { cartItems } = useSelector(state => state.cartReducer); // Your cart reducer
-    const { currentUser: user } = useSelector(state => state.loginUserReducer); // Your login reducer
-    const checkoutState = useSelector(state => state.checkout || {}); // Ensure the checkout state is not undefined
+    const { cartItems } = useSelector(state => state.cartReducer); // Cart reducer
+    const { currentUser: user } = useSelector(state => state.loginUserReducer); // Login reducer
+    const checkoutState = useSelector(state => state.checkout || {}); // Checkout state
     const { success: orderSuccess, error: orderError } = checkoutState;
 
     useEffect(() => {
-        if (!user) navigate('/');
+        if (!user) navigate('/'); // Redirect if not logged in
     }, [user, navigate]);
 
     useEffect(() => {
         if (orderSuccess) {
-            setSuccess('Checkout successful!');
+            setSuccess('Order placed successfully!');
+            setShowModal(true);
+            localStorage.removeItem('cartItems'); // Clear cart items from localStorage
             setTimeout(() => {
                 navigate('/home');
-            }, 2000);
+            }, 3000); // Redirect after 3 seconds
         }
         if (orderError) {
             setError(orderError.message);
+            setShowModal(true);
         }
     }, [orderSuccess, orderError, navigate]);
 
-    const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-
+    const totalAmount = cartItems.reduce((total, item) => total + item.price , 0);
+    console.log(totalAmount)
     const handleCheckout = () => {
-        if (password === 'yes') {
-            const orderDetails = {
-                userId: user._id,
-                items: cartItems,
-                totalAmount,
-                password,
-            };
+        const orderDetails = {
 
-            dispatch(saveOrderToDatabase(orderDetails));
-        } else {
-            setError('Incorrect password. Please try again.');
-        }
+            items: cartItems,
+            totalAmount
+        };
+        dispatch(saveOrderToDatabase(orderDetails)); // Dispatch order
+        console.log(orderDetails)
     };
-
+    
     return (
         <div className="min-h-screen bg-gray-100 p-4">
+            <Header/>
+            <div className='text-white'>.</div>
+            <div className='text-white'>.</div>
             <h1 className="text-2xl font-semibold mb-4">Checkout</h1>
-            <div className="mb-4">
-                <h2 className="text-xl">Total Amount: USD {totalAmount}</h2>
+
+            {/* Order Summary */}
+            <div className="bg-white p-4 shadow rounded-lg">
+                <h2 className="text-xl font-semibold mb-2">Order Summary</h2>
+                {cartItems.map(item => (
+                    <div key={item._id} className="flex justify-between items-center mb-2">
+                        <span>{item.name} (x{1})</span>
+                        <span>₹{item.price * 1}</span>
+                    </div>
+                ))}
+                <div className="flex justify-between font-semibold mt-4 border-t pt-4">
+                    <span>Total Amount</span>
+                    <span>₹{totalAmount}</span>
+                </div>
             </div>
-            <div className="mb-4">
-                <label htmlFor="password" className="block text-sm font-semibold">
-                    Enter 'yes' to complete the checkout
-                </label>
-                <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="mt-1 w-full p-2 border rounded"
-                />
-            </div>
-            {error && <p className="text-red-500">{error}</p>}
-            {success && <p className="text-green-500">{success}</p>}
+
+            {/* Place Order Button */}
             <button
                 onClick={handleCheckout}
-                className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300"
+                className="mt-6 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300"
             >
-                Confirm Checkout
+                Place Order
             </button>
+            <Navbar/>
+            {/* Modal for success/failure message */}
+            {showModal && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white p-6 rounded-lg shadow-lg">
+                        {orderSuccess && <p className="text-green-500">{success}</p>}
+                        {orderError && <p className="text-red-500">{error}</p>}
+                        <button
+                            onClick={() => setShowModal(false)}
+                            className="mt-4 bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 transition duration-300"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

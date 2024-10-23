@@ -32,7 +32,7 @@ const Navbar = () => {
 
       {/* Search Icon - No link for now */}
       <a href="#" className="text-gray-500">
-        <i className="fas fa-search text-2xl"></i>
+        <i className="fas fa-shipping-fast text-2xl"></i>
       </a>
 
       {/* Cart Icon linked to /cart */}

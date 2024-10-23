@@ -21,6 +21,8 @@ export default function Cart() {
     return (
         <div className="min-h-screen bg-white p-4">
             <Header />
+            <div className='text-white'>.</div>
+            <div className='text-white'>.</div>
             <div className="flex justify-between items-center mb-4">
                 <h1 className="text-xl font-semibold">Shopping Cart</h1>
                 <span className="text-lg">Total Items: {cartItems.length}</span>
@@ -37,7 +39,7 @@ export default function Cart() {
                                 <img src={item.image} alt={item.name} className="w-12 h-12 rounded" />
                                 <div className="flex-1 ml-4">
                                     <h2 className="text-sm font-semibold">{item.name}</h2>
-                                    <p className="text-sm text-gray-500">USD {item.price}</p>
+                                    <p className="text-sm text-gray-500">₹{item.price}</p>
                                 </div>
                             </div>
                             <button
@@ -54,7 +56,7 @@ export default function Cart() {
                     <div className="mt-4 flex justify-between text-sm text-gray-500">
                         <span>Total {cartItems.length} Items</span>
                         <span className="text-black">
-                            USD {cartItems.reduce((total, item) => total + item.price, 0)}
+                        ₹{cartItems.reduce((total, item) => total + item.price, 0)}
                         </span>
                     </div>
                 )}
