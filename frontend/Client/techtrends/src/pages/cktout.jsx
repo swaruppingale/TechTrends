@@ -8,6 +8,7 @@ const Checkout = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [showModal, setShowModal] = useState(false);  // Modal state
+    const [orderDetails, setOrderDetails] = useState({})
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -15,35 +16,43 @@ const Checkout = () => {
     const { currentUser: user } = useSelector(state => state.loginUserReducer); // Login reducer
     const checkoutState = useSelector(state => state.checkout || {}); // Checkout state
     const { success: orderSuccess, error: orderError } = checkoutState;
+    const [orderState, setOrderState] = useState(0);
 
     useEffect(() => {
         if (!user) navigate('/'); // Redirect if not logged in
     }, [user, navigate]);
 
     useEffect(() => {
-        if (orderSuccess) {
+        if (orderState) {
             setSuccess('Order placed successfully!');
             setShowModal(true);
             localStorage.removeItem('cartItems'); // Clear cart items from localStorage
             setTimeout(() => {
                 navigate('/home');
-            }, 3000); // Redirect after 3 seconds
+            }, 1000);
+            // window.location.reload(); // Redirect after 3 seconds
         }
         if (orderError) {
             setError(orderError.message);
             setShowModal(true);
         }
-    }, [orderSuccess, orderError, navigate]);
+        
+    }, [orderSuccess, orderError, navigate,orderDetails]);
 
     const totalAmount = cartItems.reduce((total, item) => total + item.price , 0);
     console.log(totalAmount)
     const handleCheckout = () => {
-        const orderDetails = {
+        // const orderDetails = {
 
+        //     items: cartItems,
+        //     totalAmount
+        // };
+        setOrderDetails({
             items: cartItems,
             totalAmount
-        };
-        dispatch(saveOrderToDatabase(orderDetails)); // Dispatch order
+        })
+        dispatch(saveOrderToDatabase(orderDetails));
+        setOrderState(1); // Dispatch order
         console.log(orderDetails)
     };
     
