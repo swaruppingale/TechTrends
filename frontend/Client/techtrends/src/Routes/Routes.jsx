@@ -5,6 +5,7 @@ import Cart from "../pages/cart.jsx"
 import Login from "../pages/SignIn.jsx"
 import SignUp from "../pages/SignUp.jsx"
 import CHKOUT from "../pages/cktout.jsx"; //ok eror
+import MYORDERS from "../pages/myorders.jsx";
 const Routes = [
   {
     path: "/home",
@@ -29,6 +30,10 @@ const Routes = [
   {
     path:"/checkout",
     element: <CHKOUT/>
+  },
+  {
+    path:"/orders",
+    element: <MYORDERS/>
   }
 ];
 

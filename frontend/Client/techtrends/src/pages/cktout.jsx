@@ -21,16 +21,26 @@ const Checkout = () => {
     useEffect(() => {
         if (!user) navigate('/'); // Redirect if not logged in
     }, [user, navigate]);
-
+    useEffect(() => {
+      if(!localStorage.getItem("cartItems")){
+        navigate('/home');
+      }
+    
+      
+    }, [])
+    
     useEffect(() => {
         if (orderState) {
+            dispatch(saveOrderToDatabase(orderDetails));
             setSuccess('Order placed successfully!');
             setShowModal(true);
             localStorage.removeItem('cartItems'); // Clear cart items from localStorage
+            window.location.reload();
+            
             setTimeout(() => {
                 navigate('/home');
             }, 1000);
-            // window.location.reload(); // Redirect after 3 seconds
+             // Redirect after 3 seconds
         }
         if (orderError) {
             setError(orderError.message);
@@ -90,14 +100,18 @@ const Checkout = () => {
             {showModal && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
                     <div className="bg-white p-6 rounded-lg shadow-lg">
-                        {orderSuccess && <p className="text-green-500">{success}</p>}
-                        {orderError && <p className="text-red-500">{error}</p>}
-                        <button
+                        if(orderState){
+
+
+                        }
+                        {/* {orderSuccess && <p className="text-green-500">order placed successfully!!{success}</p>}
+                        {orderError && <p className="text-red-500">order failed!!{error}</p>} */}
+                        {/* <button
                             onClick={() => setShowModal(false)}
                             className="mt-4 bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 transition duration-300"
                         >
                             Close
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             )}

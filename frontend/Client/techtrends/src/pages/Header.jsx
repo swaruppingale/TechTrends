@@ -9,11 +9,12 @@ const Header = () => {
         
         <span className="text-2xl font-semibold">TechTrends</span>
       </div>
-      <img
+      {/* <img
         src="https://placehold.co/30x30"
         alt="User profile"
         className="rounded-full"
-      />
+      /> */}
+      <div className="text-3xl">🔱</div>
     </header>
   );
 };

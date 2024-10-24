@@ -78,7 +78,7 @@ const Home = () => {
                                                 </Link>
                                                 <button
                                                     onClick={() => handleAddToCart(item)}
-                                                    className="mt-2 w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                                                    className="mt-2 w-full bg-[#0ACF83] text-white py-2 px-4 rounded hover:bg-[#0ACF83]"
                                                 >
                                                     Add to Cart
                                                 </button>

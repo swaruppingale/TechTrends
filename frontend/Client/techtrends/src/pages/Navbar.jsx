@@ -14,13 +14,13 @@ const Navbar = () => {
   // Function to handle the logout process
   const handleLogout = () => {
     // Clear localStorage or any other necessary session clean-up
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem("currentUser");
 
     // Optionally, dispatch a logout action if needed
     // dispatch(logoutUser());
 
     // Redirect to the login page
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -31,9 +31,9 @@ const Navbar = () => {
       </Link>
 
       {/* Search Icon - No link for now */}
-      <a href="#" className="text-gray-500">
+      <Link to="/orders" className="text-gray-500">
         <i className="fas fa-shipping-fast text-2xl"></i>
-      </a>
+      </Link>
 
       {/* Cart Icon linked to /cart */}
       <Link to="/cart" className="relative text-gray-500">
@@ -56,7 +56,9 @@ const Navbar = () => {
       {showLogoutModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h2 className="text-2xl font-bold text-red-600 mb-4">Confirm Logout</h2>
+            <h2 className="text-2xl font-bold text-red-600 mb-4">
+              Confirm Logout
+            </h2>
             <p className="mb-4">Are you sure you want to log out?</p>
             <div className="flex justify-around">
               <button

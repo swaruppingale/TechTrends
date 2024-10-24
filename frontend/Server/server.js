@@ -23,6 +23,7 @@ app.use(cors());
 app.use("/api/items", require("./routes/itemRoute"));
 app.use("/api/users", require("./routes/userRoute"));
 app.use("/api/checkout", require("./routes/checkoutRoute")); // Ensure this line is present
+app.use("/api/orders",require('./routes/orderRoute'))
 
 app.get('/', (req, res) => {
     res.send("<h1>Hello from the Node server</h1>");
